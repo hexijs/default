@@ -1,0 +1,48 @@
+{
+  "name": "hexi-default",
+  "version": "0.1.0",
+  "description": "Adds some default middlewares to hexi's express app",
+  "files": [
+    "index.js"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/{**/,/}*.js",
+    "coverage": "istanbul cover _mocha test/{**/,/}*.js -- -R spec",
+    "precoveralls": "istanbul cover _mocha test/{**/,/}*.js --report lcovonly -- -R spec && npm i coveralls@2",
+    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "postcoveralls": "rm -rf ./coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hexijs/default"
+  },
+  "keywords": [
+    "hexi",
+    "plugin",
+    "middlewares"
+  ],
+  "author": {
+    "name": "Zoltan Kochan",
+    "email": "zoltan.kochan@gmail.com",
+    "url": "http://kochan.io"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hexijs/default/issues"
+  },
+  "homepage": "https://github.com/hexijs/default#readme",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "compression": "^1.6.1",
+    "cookie-parser": "^1.4.1",
+    "helmet": "^1.1.0",
+    "method-override": "^2.3.5"
+  },
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "hexi": "^0.4.2",
+    "istanbul": "^0.4.2",
+    "mocha": "^2.3.4"
+  }
+}
