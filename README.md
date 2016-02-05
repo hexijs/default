@@ -2,10 +2,10 @@
 
 Adds some default middlewares to hexi's express app
 
-[![Dependency Status](https://david-dm.org/hexijs/default/status.svg?style=flat)](https://david-dm.org/hexijs/default)
-[![Build Status](https://travis-ci.org/hexijs/default.svg?branch=master)](https://travis-ci.org/hexijs/default)
+[![Dependency Status](https://david-dm.org/hexijs/hexi-default/status.svg?style=flat)](https://david-dm.org/hexijs/hexi-default)
+[![Build Status](https://travis-ci.org/hexijs/hexi-default.svg?branch=master)](https://travis-ci.org/hexijs/hexi-default)
 [![npm version](https://badge.fury.io/js/hexi-default.svg)](http://badge.fury.io/js/hexi-default)
-[![Coverage Status](https://coveralls.io/repos/hexijs/default/badge.svg?branch=master&service=github)](https://coveralls.io/github/hexijs/default?branch=master)
+[![Coverage Status](https://coveralls.io/repos/hexijs/hexi-default/badge.svg?branch=master&service=github)](https://coveralls.io/github/hexijs/hexi-default?branch=master)
 
 
 ## Installation

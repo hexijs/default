@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/hexijs/default"
+    "url": "https://github.com/hexijs/hexi-default"
   },
   "keywords": [
     "hexi",
@@ -29,9 +29,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hexijs/default/issues"
+    "url": "https://github.com/hexijs/hexi-default/issues"
   },
-  "homepage": "https://github.com/hexijs/default#readme",
+  "homepage": "https://github.com/hexijs/hexi-default#readme",
   "dependencies": {
     "body-parser": "^1.14.2",
     "compression": "^1.6.1",
