@@ -6,35 +6,34 @@ const cookieParser = require('cookie-parser')
 const helmet = require('helmet')
 
 module.exports = function(server, opts) {
-  server.task('json-parser', bodyParser.json())
-  server.task('url-encoded-parser', bodyParser.urlencoded({
-    extended: true,
+  server.express.use(compress({
+    filter: function(req, res) {
+      return (/json|text|javascript|css|font|svg/)
+        .test(res.getHeader('Content-Type'))
+    },
+    level: 9,
   }))
 
-  server.task('method-override', methodOverride())
-  server.task('compress', compress())
-  server.task('cookie-parser', cookieParser())
+  let defMiddlewares = [
+    bodyParser.json(),
+    bodyParser.urlencoded({
+      extended: true,
+    }),
+    methodOverride(),
+    cookieParser(),
+    helmet(),
+  ]
 
-  // Use helmet to secure Express headers
-  server.task('helmet-xframe', helmet.xframe())
-  server.task('helmet-xss-filter', helmet.xssFilter())
-  server.task('helmet-no-sniff', helmet.nosniff())
-  server.task('helmet-ie-no-open', helmet.ienoopen())
-  server.task('helmet', [
-    'helmet-xframe',
-    'helmet-xss-filter',
-    'helmet-no-sniff',
-    'helmet-ie-no-open',
-  ])
+  server.route.pre(function(next, opts) {
+    if (opts.config.detached === true) return next(opts)
 
-  server.task('default', [
-    'cookie-parser',
-    'method-override',
-    'compress',
-    'json-parser',
-    'url-encoded-parser',
-    'helmet',
-  ])
+    opts.pre = opts.pre.concat(defMiddlewares)
+    return next(opts)
+  })
+
+  server.decorate('defaultMiddleware', function(middleware) {
+    defMiddlewares.push(middleware)
+  })
 }
 
 module.exports.attributes = {
