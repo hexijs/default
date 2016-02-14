@@ -7,7 +7,7 @@ const helmet = require('helmet')
 
 module.exports = function(server, opts) {
   server.express.use(compress({
-    filter: function(req, res) {
+    filter(req, res) {
       return (/json|text|javascript|css|font|svg/)
         .test(res.getHeader('Content-Type'))
     },
@@ -24,15 +24,17 @@ module.exports = function(server, opts) {
     helmet(),
   ]
 
-  server.route.pre(function(next, opts) {
+  server.route.pre((next, opts) => {
     if (opts.config.detached === true) return next(opts)
 
     opts.pre = opts.pre.concat(defMiddlewares)
     return next(opts)
   })
 
-  server.decorate('defaultMiddleware', function(middleware) {
-    defMiddlewares.push(middleware)
+  server.decorate({
+    beforeHandler(middleware) {
+      defMiddlewares.push(middleware)
+    },
   })
 }
 

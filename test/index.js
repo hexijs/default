@@ -18,7 +18,7 @@ describe('hexi-default', function() {
   })
 
   it('should register new default handler', function(done) {
-    server.defaultMiddleware((req, res, next) => done())
+    server.beforeHandler((req, res, next) => done())
 
     server.route({
       method: 'GET',
@@ -32,7 +32,7 @@ describe('hexi-default', function() {
 
   it('should not call default handlers when detached', function(done) {
     let defaultMiddleware = sinon.spy((req, res, next) => next())
-    server.defaultMiddleware(defaultMiddleware)
+    server.beforeHandler(defaultMiddleware)
 
     server.route({
       method: 'GET',
