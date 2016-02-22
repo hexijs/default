@@ -31,4 +31,4 @@ hexi.register(hexiDefault)
 
 ## License
 
-MIT
+MIT © [Zoltan Kochan](https://www.kochan.io)

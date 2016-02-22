@@ -5,9 +5,9 @@ const compress = require('compression')
 const cookieParser = require('cookie-parser')
 const helmet = require('helmet')
 
-module.exports = function(server, opts) {
+module.exports = (server, opts) => {
   server.express.use(compress({
-    filter(req, res) {
+    filter (req, res) {
       return (/json|text|javascript|css|font|svg/)
         .test(res.getHeader('Content-Type'))
     },
@@ -25,14 +25,14 @@ module.exports = function(server, opts) {
   ]
 
   server.route.pre((next, opts) => {
-    if (opts.config.detached === true) return next(opts)
+    if (opts.config.detached === true) return next.applySame()
 
     opts.pre = opts.pre.concat(defMiddlewares)
     return next(opts)
   })
 
   server.decorate({
-    beforeHandler(middleware) {
+    beforeHandler (middleware) {
       defMiddlewares.push(middleware)
     },
   })
