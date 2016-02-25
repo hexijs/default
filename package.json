@@ -34,16 +34,16 @@
   },
   "homepage": "https://github.com/hexijs/hexi-default#readme",
   "dependencies": {
-    "body-parser": "^1.14.2",
-    "compression": "^1.6.1",
-    "cookie-parser": "^1.4.1",
-    "helmet": "^1.1.0",
-    "method-override": "^2.3.5"
+    "body-parser": "1.x.x",
+    "compression": "1.x.x",
+    "cookie-parser": "1.x.x",
+    "helmet": "1.x.x",
+    "method-override": "2.x.x"
   },
   "devDependencies": {
     "chai": "^3.4.1",
     "express": "^4.13.4",
-    "hexi": "^0.8.0",
+    "hexi": "^0.8.1",
     "istanbul": "^0.4.2",
     "mocha": "^2.3.4",
     "sinon": "^1.17.3",

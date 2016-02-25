@@ -31,7 +31,7 @@ module.exports = (server, opts) => {
     return next(opts)
   })
 
-  server.decorate({
+  server.decorate('server', {
     beforeHandler (middleware) {
       defMiddlewares.push(middleware)
     },

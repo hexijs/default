@@ -10,10 +10,8 @@ Adds some default middlewares to hexi's express app
 
 ## Installation
 
-This module is installed via npm:
-
 ``` bash
-$ npm install hexi-default
+npm install hexi-default
 ```
 
 
@@ -23,7 +21,7 @@ $ npm install hexi-default
 const hexi = require('hexi')
 const hexiDefault = require('hexi-default')
 
-let server = hexi()
+const server = hexi()
 
 hexi.register(hexiDefault)
 ```
