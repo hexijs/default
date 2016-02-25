@@ -1,6 +1,6 @@
 {
   "name": "hexi-default",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Adds some default middlewares to hexi's express app",
   "files": [
     "index.js"
